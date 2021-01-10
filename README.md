@@ -6,9 +6,62 @@ Based on the EDGI Repo Guidelines at https://github.com/edgi-govdata-archiving/o
 This repository is contains a Spanish-language version of the congressional report card project, found in the CD-report repository.
 
 # How to start contributing to this repo
-* Instructions go here
-* Developer setup (if relevant)
-* Slack channel (if relevant)
+* Some files to not check into this repository
+  - The .png files in the CD_Dirs folder that are generated when the .Rmd markdown are run.
+  - The .html or .pdf files in the New folder that are generated.
+* Developer setup
+  - The developer will need R Studio and a bash command-line shell.
+  - The process for generating reports is the same as in the EEW-Report-Making repository's README.md.
+  
+#### Generate R markdown .Rmd files for each CD
+
+The CSVs listed in the cd_todos directory files are used to generate batches of the R markdown .Rmd files that create the report cards.
+
+From the reportcards directory, the make_sedfiles.py script creates a file of replacement editing commands to be run against the template .Rmd file to make the .Rmd for the CD.  This script also creates the make_reports.sh bash shell script the calls upon the sedfiles to do the editing for each CD.
+
+A state_names.csv file in the cd_todos directory is also used to map the state/CD from the cds_todo_X.csv files to the full possessive state name, e.g. AL,1 --> Alabama's 1st.
+
+  ../cd_todos/cd_todos_1.csv
+  ../cd_todos/state_names.csv   ---> make_sedfiles.py   ---> reportcards/SEDs/sedfile_AL1.txt, etc.
+  
+  VA4_2020_es.Rmd
+  SEDs/sedfile_XXX.txt   ---> make_reports.py   ---> reportcards/New/AL1_2020.Rmd, etc.
+  
+#### Directory structure for making report cards
+```
+CD-Report-Spanish
+  |
+  |- cds_todo
+       |
+       |- cds_todo_1.csv
+          ...
+  |
+  |- reportcards
+       |
+       |- AL1_2020_es.Rmd
+       |- VA4_2020_es.Rmd
+          ...
+  |
+  |- CD_Dirs
+       |
+       |- AL1
+            |
+            |- active-facilities_All_pg3_AL-1-102320.csv
+               ...
+       |-  ...
+  |
+  |- CD_maps
+       |
+       |- AL1_map.png
+          ...
+  |
+  |- CD_images
+       |
+       |- AL1_rep.jpeg
+          ...
+  ```        
+  
+* This project is part of the EPA Enforcement Watch (EEW), at slack channel eew_coordination.
 
 **Suggestions for additional components of Readmes:**
 * A "How to use" section if the repo's project is a tool or website
