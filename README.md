@@ -13,6 +13,8 @@ This repository is contains a Spanish-language version of the congressional repo
   - The developer will need R Studio and a bash command-line shell.
   - The process for generating reports is the same as in the EEW-Report-Making repository's README.md.
   
+# How to Use This Repository
+
 #### Generate R markdown .Rmd files for each CD
 
 The CSVs listed in the cd_todos directory files are used to generate batches of the R markdown .Rmd files that create the report cards.
