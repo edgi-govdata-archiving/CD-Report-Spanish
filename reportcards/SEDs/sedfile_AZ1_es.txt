@@ -1,0 +1,6 @@
+s/4\$^\\circ\$ distrito de Virginia/1$^\\circ$ distrito de Arizona/g
+s/4\$^\\circ\$ DISTRITO DE VIRGINIA/1$^\\circ$ DISTRITO DE ARIZONA/g
+s/VA 4/AZ 1/g
+s/_VA-4/_AZ-1/g
+s/VA4/AZ1/g
+s/_VA-/_AZ-/g

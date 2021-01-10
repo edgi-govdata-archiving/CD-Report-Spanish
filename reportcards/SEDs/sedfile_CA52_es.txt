@@ -1,0 +1,6 @@
+s/4\$^\\circ\$ distrito de Virginia/52$^\\circ$ distrito de California/g
+s/4\$^\\circ\$ DISTRITO DE VIRGINIA/52$^\\circ$ DISTRITO DE CALIFORNIA/g
+s/VA 4/CA 52/g
+s/_VA-4/_CA-52/g
+s/VA4/CA52/g
+s/_VA-/_CA-/g

@@ -1,0 +1,6 @@
+s/4\$^\\circ\$ distrito de Virginia/1$^\\circ$ distrito de Colorado/g
+s/4\$^\\circ\$ DISTRITO DE VIRGINIA/1$^\\circ$ DISTRITO DE COLORADO/g
+s/VA 4/CO 1/g
+s/_VA-4/_CO-1/g
+s/VA4/CO1/g
+s/_VA-/_CO-/g

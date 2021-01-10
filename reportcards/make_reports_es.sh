@@ -1,0 +1,9 @@
+sed -f SEDs/sedfile_AZ1_es.txt VA4_2020_es.Rmd > New/AZ1_2020_es.Rmd
+sed -f SEDs/sedfile_CA18_es.txt VA4_2020_es.Rmd > New/CA18_2020_es.Rmd
+sed -f SEDs/sedfile_CA29_es.txt VA4_2020_es.Rmd > New/CA29_2020_es.Rmd
+sed -f SEDs/sedfile_CA36_es.txt VA4_2020_es.Rmd > New/CA36_2020_es.Rmd
+sed -f SEDs/sedfile_CA44_es.txt VA4_2020_es.Rmd > New/CA44_2020_es.Rmd
+sed -f SEDs/sedfile_CA52_es.txt VA4_2020_es.Rmd > New/CA52_2020_es.Rmd
+sed -f SEDs/sedfile_CA6_es.txt VA4_2020_es.Rmd > New/CA6_2020_es.Rmd
+sed -f SEDs/sedfile_CA9_es.txt VA4_2020_es.Rmd > New/CA9_2020_es.Rmd
+sed -f SEDs/sedfile_CO1_es.txt VA4_2020_es.Rmd > New/CO1_2020_es.Rmd
