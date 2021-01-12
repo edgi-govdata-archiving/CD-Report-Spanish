@@ -24,14 +24,20 @@ From the reportcards directory, the make_sedfiles.py script creates a file of re
 A state_names.csv file in the cd_todos directory is also used to map the state/CD from the cds_todo_X.csv files to the full possessive state name, e.g. AL,1 --> Alabama's 1st.
 
   ../cd_todos/cd_todos_1.csv
-  ../cd_todos/state_names.csv   ---> make_sedfiles.py   ---> reportcards/SEDs/sedfile_AL1.txt, etc.
+  ../cd_todos/state_names_es.csv   ---> make_sedfiles.py   ---> reportcards/SEDs/sedfile_AL1.txt, etc.
   
   VA4_2020_es.Rmd
-  SEDs/sedfile_XXX.txt   ---> make_reports.py   ---> reportcards/New/AL1_2020.Rmd, etc.
+  SEDs/sedfile_XXX.txt   ---> make_reports.sh   ---> reportcards/New/AL1_2020.Rmd, etc.
+  
+#### Create the HTML and PDF report cards from .Rmd files
+
+The R Markdown files in the reportcards/New directory are inputs for the runreports.R script.  For every .Rmd file
+it finds in the reportcards/New directory it creates an HTML and PDF report card.
   
 #### Directory structure for making report cards
 ```
 CD-Report-Spanish
+  |- runreports.R
   |
   |- cds_todo
        |
@@ -40,9 +46,20 @@ CD-Report-Spanish
   |
   |- reportcards
        |
-       |- AL1_2020_es.Rmd
-       |- VA4_2020_es.Rmd
+       |- make_reports_es.sh
+       |- make_sedfiles_es.py
+       |- VA4_template_es.Rmd
           ...
+          |- New  (Empty until make_reports.sh runs.)
+              |- FL12_2020_es.Rmd
+                 ...
+          |- SEDs  (Empty until make_sedfiles.py runs.)
+              |- FL12_es.txt
+                 ...
+          |- Outputs  (Empty until runreports.R runs. )
+              |- FL12_2020_es.html
+              |- FL12_2020_es.pdf
+                 ...
   |
   |- CD_Dirs
        |
