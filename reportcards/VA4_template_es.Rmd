@@ -64,7 +64,7 @@ theme_meg <- function () {
     theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),panel.border = element_blank(),
           axis.line = element_line(colour = "black"), axis.title.x=element_text(face = "bold", size = 12), 
           axis.title.y=element_text(face = "bold", size = 8, angle=90), plot.title=element_text(face = "bold", size = 14, hjust =.5), 
-          axis.text.x=element_text(face = "bold", size = 14), axis.text.y=element_text(face = "bold", size = 8))
+          axis.text.x=element_text(face = "bold", size = 14), axis.text.y=element_text(face = "bold", size=8), plot.margin=unit(c(1,1,1,1),"cm"), plot.subtitle=element_text(face="bold",size=8))
 }
 
 common_caption <- "Estos valores han sido ajustados para tomar en cuenta \nla inflación, tenga en cuenta que el eje-y informa \nvalores en 1000’s. Un valor de $2,000 representa \n$2,000,000 (2 millones de dólares)."
@@ -405,7 +405,7 @@ enforcementfinegraph <- enforcement %>% ggplot()+
   scale_x_discrete(breaks=c(2004,2008,2012,2016,2019))+
   theme_meg()+
   theme(axis.text.x=element_text(size=9),
-        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5, size=9), plot.caption = element_text(size=10, hjust=.5), plot.title = 
+        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5, size=9), plot.caption = element_text(size=8, hjust=0), plot.title = 
           element_text(lineheight = .1, size=10))
 
 ```
@@ -455,7 +455,6 @@ inspect1000bar <- ggplot(inspectionsper1000, aes(fill=Region, y=Inspectionsper10
   ggtitle("Inspecciones por cada 1000 Instalaciones en 2019")+
   scale_y_continuous(expand=c(0,0),limits=c(0,1350))+geom_hline(yintercept=1000, linetype="dashed", color="black")+geom_text(aes(label="Promedio de 1 inspección por instalación",family="Georgia"),x=2,y=1050,color="black",size=4)+
   theme_meg()
-  
 
 #comparing violations
 #let's combine the violations data at national, state, CD level 
@@ -525,8 +524,9 @@ if ( nrows_caa > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la CAA")+
       scale_y_continuous(expand=c(0,0))+
       # scale_x_discrete(expand=c(0,0))+
+      theme_meg()+
       theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=
-              element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+              element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
    
   } else {
@@ -538,7 +538,8 @@ if ( nrows_caa > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la CAA")+
       scale_y_continuous(expand=c(0,0), limits=c(0,12))+
       scale_x_discrete(expand=c(0,0))+
-      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+      theme_meg()+
+      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
   }
   ggsave("CAAfacilities.png", CAAfacilities, path=here("../CD_Dirs/VA4"), scale = 3, width=7, height=4, units=c("cm"))
@@ -569,8 +570,9 @@ if ( nrows_cwa > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la CWA")+
       scale_y_continuous(expand=c(0,0), breaks=c(0,3,6,9,13), limits=c(0,13))+
       # scale_x_discrete(expand=c(0,0))+
+      theme_meg()+
       theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=
-              element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+              element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
    
   } else {
@@ -582,28 +584,12 @@ if ( nrows_cwa > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la CWA")+
       scale_y_continuous(expand=c(0,0), breaks=c(0,3,6,9,13), limits=c(0,13))+
       scale_x_discrete(expand=c(0,0))+
-      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+      theme_meg()+
+      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
   }
   ggsave("CWAfacilities.png", CWAfacilities, path=here("../CD_Dirs/VA4"), scale = 3, width=7, height=4, units=c("cm"))
 }
-CWAbadactors <- CWAbadactors[-c(11:20),]
-CWAbadactors$Facility <- CWAbadactors$FAC_NAME
-CWAbadactors$Facility <- strtrim(CWAbadactors$Facility, 30)
-
-#Let's try the CWA plot 
-
-CWAfacilities <- CWAbadactors %>%
-  mutate(Facility = fct_reorder(Facility, noncomp_count)) %>%
-  ggplot( mapping=aes(x=Facility, y=noncomp_count, fill=Facility, group=1))+
-  geom_bar(stat="identity", show.legend = FALSE, width=.8)+
-  scale_fill_viridis(discrete = TRUE, option="B")+
-  labs(y="Trimestres en Violación", x="", title="Violadores de la CWA")+
-  scale_y_continuous(expand=c(0,0),breaks=c(0,3,6,9,13), limits=c(0,13))+
-  scale_x_discrete(expand=c(0,0))+
-  theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=
-          element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
-  coord_flip()
 
 #call in data and clean up 
 RCRAbadactors <- `noncomp_RCRA_pg7_VA-4`
@@ -630,8 +616,9 @@ if ( nrows_rcra > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la RCRA")+
       scale_y_continuous(expand=c(0,0))+
       # scale_x_discrete(expand=c(0,0))+
+      theme_meg()+
       theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=
-              element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+              element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
    
   } else {
@@ -643,7 +630,8 @@ if ( nrows_rcra > 0 ) {
       labs(y="Trimestres en Violación", x="", title="Violadores de la RCRA")+
       scale_y_continuous(expand=c(0,0), limits=c(0,12))+
       scale_x_discrete(expand=c(0,0))+
-      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16), plot.margin = unit(c(1,1,1,1),"cm"))+
+      theme_meg()+
+      theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
       coord_flip()
   }
   ggsave("RCRAfacilities.png", RCRAfacilities, path=here("../CD_Dirs/VA4"), scale = 3, width=7, height=4, units=c("cm"))
@@ -662,6 +650,7 @@ RCRAfacilities <- RCRAbadactors %>%
   labs(y="Trimestres en Violación", x="", title="Violadores de RCRA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,12))+
   scale_x_discrete(expand=c(0,0))+
+  theme_meg()+
   theme(axis.text.y=element_text(size=12, face = "bold", color="black"), axis.title.x = element_text(size=14), axis.text.x=
           element_text(size=14,face = "bold"), plot.title=element_text(size=16))+
   coord_flip()
@@ -766,7 +755,7 @@ La [Ley de Aire Limpio (CAA)](https://www.epa.gov/laws-regulations/summary-clean
 [Más información sobre CAA](https://docs.google.com/presentation/d/1MzRQf3QeJqmYMSttdk0ghrXeOmOZgOV_MTynl-ri6Ik/edit?usp=sharing)
 
 </div>
-<h2>Actualmente hay `r activefacilities[1,2] `  instalaciones que se reportan a la CAA `r activefacilities[1,1]` en este distrito.</h2>
+<h2>Actualmente hay `r activefacilities[1,2] `  instalaciones que se reportan a la `r activefacilities[1,1]` en este distrito.</h2>
 ```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
 
 #clean up data
@@ -782,11 +771,11 @@ CAAviolations[17:19,3] <- as.character("Trump")
 vCAAgraph <- ggplot(CAAviolations, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.3)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Violaciones", x="Año", title="Violaciones de CAA\n", subtitle ="Datos mayormente completos")+
+  labs(y="# de Violaciones", x="Año", title="Violaciones\n", subtitle ="Datos mayormente completos")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CAAviolations$Count+(.2*max(CAAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
@@ -800,12 +789,12 @@ CAAinspections[17:19,3] <- as.character("Trump")
 iCAAgraph <- ggplot(CAAinspections, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Inspecciones", x="Año", title="Inspecciones de CAA\n", subtitle ="Datos potencialmente incompletos")+
+  labs(y="# de Inspecciones", x="Año", title="Inspecciones\n", subtitle ="Datos potencialmente incompletos")+
   #ggtitle("Inspecciones de CAA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CAAinspections$Count+(.2*max(CAAinspections$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
@@ -827,23 +816,23 @@ CAAenforcement$Amountinthousands <-round(CAAenforcement$Amountinthousands,2)
 eCAAgraph <- ggplot(CAAenforcement, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y=" # de Acciones", x="Año", title="Acciones de aplicación de CAA\n", subtitle ="Datos potencialmente incompletos")+
+  labs(y=" # de Acciones", x="Año", title="Acciones de aplicación\n", subtitle ="Datos potencialmente incompletos")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CAAviolations$Count+(.2*max(CAAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   geom_text(aes(label=Count, family="Georgia", fontface="bold"), position = position_dodge(0.9), vjust = -0.1, size=3)+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 fineCAAgraph <- ggplot(CAAenforcement, mapping=aes(x=factor(Date), y=Amountinthousands, fill=President, group=1))+
   geom_bar(stat="identity", alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Multas ($1,000)", x="Año", title="Multas de CAA\n", subtitle ="Datos potencialmente incompletos", caption=common_caption)+
+  labs(y="# de Multas ($1,000)", x="Año", title="Multas\n", subtitle ="Datos potencialmente incompletos", caption=common_caption)+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CAAenforcement$Amountinthousands+(.2*max(CAAenforcement$Amountinthousands)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
-        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=10, hjust=.5))
+  theme(axis.text.x=element_text(size=8),
+        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=8, hjust=0))
 
 
 
@@ -864,7 +853,7 @@ Estos gráficos demuestran los patrones de las inspecciones, violaciones, accion
 <div class="text-box-info">
 The [La Ley de Agua Limpia (CWA)](https://www.epa.gov/laws-regulations/summary-clean-water-act) eestablece estándares de calidad para las aguas superficiales (arroyos, ríos, lagos, humedales, embalses etc). En este informe, nos enfocamos en el Sistema Nacional de Eliminación de Desechos Contaminantes (NPDES) de CWA, que permite a las instalaciones desechar ciertos tipos y ciertas cantidades de contaminantes. A diferencia de CAA, bajo la CWA, los efluentes (emisiones de desechos) se miden directamente y se les informan de manera rutinaria electrónicamente a ECHO. Las violaciones de CWA se activan automáticamente si no se envían datos y si los niveles de contaminantes en el efluente exceden la cantidad permitida. Tales violaciones de la ley CWA pueden llegar a causar inspecciones. [Más información sobre CWA](https://docs.google.com/presentation/d/1g6ZN3B5jvs3F1VAigiUtNNezjXdJnzuELfo9Deo9Y2w/edit?usp=sharing)
 </div>
-<h2>Hay `r activefacilities[2,2] ` instalaciones que actualmente informan bajo la CWA
+<h2>Hay `r activefacilities[2,2] ` instalaciones que actualmente informan bajo 
 `r activefacilities[2,1]` en este distrito</h2> 
 ```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
 
@@ -875,7 +864,7 @@ The [La Ley de Agua Limpia (CWA)](https://www.epa.gov/laws-regulations/summary-c
 vCWAgraph <- ggplot(CWAviolations, mapping=aes(x=factor(YEAR), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y=" # de Violaciones", x="Año", title="Violaciones de CWA\n", subtitle ="Datos mayormente completos")+
+  labs(y=" # de Violaciones", x="Año", title="Violaciones\n", subtitle ="Datos mayormente completos")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAviolations$Count+(.2*max(CWAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016,2019))+
   theme_meg()+
@@ -893,7 +882,7 @@ CWAinspections[17:19,3] <- as.character("Trump")
 iCWAgraph <- ggplot(CWAinspections, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Inspecciones", x="Año", title="Inspecciones de CWA\n", subtitle ="Datos potencialmente incompletos")+
+  labs(y="# de Inspecciones", x="Año", title="Inspecciones\n", subtitle ="Datos potencialmente incompletos")+
   ggtitle("Inspecciones de CWA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAinspections$Count+(.2*max(CWAinspections$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016, 2019))+
@@ -920,7 +909,7 @@ CWAenforcement$Amountinthousands <-round(CWAenforcement$Amountinthousands,2)
 eCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Acciones", x="Año", title="Acciones de aplicación de CWA\n", subtitle="Datos potencialmente incompletos")+
+  labs(y="# de Acciones", x="Año", title="Acciones de aplicación\n", subtitle="Datos potencialmente incompletos")+
   #ggtitle("Acciones de aplicación de CWA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAviolations$Count+(.2*max(CWAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
@@ -932,13 +921,13 @@ eCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Count, fill=Pr
 fineCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Amountinthousands, fill=President, group=1))+
   geom_bar(stat="identity", alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Multas ($1,000)", x="Año", title="Multas de CWA\n", subtitle="Potentially incomplete data", caption=common_caption)+
+  labs(y="# de Multas ($1,000)", x="Año", title="Multas\n", subtitle="Datos potencialmente incompletos", caption=common_caption)+
   #ggtitle("Multas de CWA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAenforcement$Amountinthousands+(.2*max(CWAenforcement$Amountinthousands)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016,2019))+
   theme_meg()+
   theme(axis.text.x=element_text(size=10),
-        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=10, hjust=.5))
+        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=8, hjust=0))
 
 
 (iCWAgraph | vCWAgraph) / (eCWAgraph | fineCWAgraph)
@@ -964,8 +953,7 @@ Estos gráficos demuestran patrones de inspecciones, violaciones, acciones de ap
 
 The [La Ley de Conservación y Recuperación de Recursos (RCRA)](https://www.epa.gov/laws-regulations/summary-resource-conservation-and-recovery-act) otorga a la EPA la autoridad para controlar los desechos peligrosos desde la “cuna hasta la tumba”, regulando la generación, transporte, tratamiento, almacenamiento y eliminación de desechos peligrosos. Las instalaciones se reportan a RCRA, (como la CAA) y las violaciones se encuentran con mayor frecuencia después de una inspección. Si las violaciones de RCRA han disminuido, asegúrese de verificar si las inspecciones también han disminuido, ya que los recortes recientes en las inspecciones probablemente estén relacionados con la disminución de las violaciones de RCRA. [Más información sobre RCRA](https://docs.google.com/presentation/d/1lV9b_vkcfCbTz8uss1XjXLHy2svpi2tmizb6et1Wfkc/edit?usp=sharing)
 </div>
-<h2>Hay `r activefacilities[3,2] `  instalaciones que actualmente se reportan bajo RCRA
-`r activefacilities[3,1]` en este distrito.</h2>
+<h2>Hay `r activefacilities[3,2] `  instalaciones que actualmente se reportan bajo `r activefacilities[3,1]` en este distrito.</h2>
 ```{r, fig.height = 5, fig.width = 8, fig.align = "center"}
 
 #clean up data
@@ -979,7 +967,7 @@ RCRAviolations[17:19,3] <- as.character("Trump")
 vRCRAgraph <- ggplot(RCRAviolations, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.3)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Violaciones", x="Año", title = "Violaciones de RCRA\n", subtitle = "Datos muy incompletos")+
+  labs(y="# de Violaciones", x="Año", title = "Violaciones\n", subtitle = "Datos muy incompletos")+
   #ggtitle("Violaciones de RCRA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAviolations$Count+(.2*max(RCRAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016,2019))+
@@ -998,7 +986,7 @@ RCRAinspections[17:19,3] <- as.character("Trump")
 iRCRAgraph <- ggplot(RCRAinspections, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Inspecciones", x="Año", title="Inspecciones de RCRA\n", subtitle="Datos potencialmente incompletos")+
+  labs(y="# de Inspecciones", x="Año", title="Inspecciones\n", subtitle="Datos potencialmente incompletos")+
   #ggtitle("Inspecciones de RCRA")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAinspections$Count+(.2*max(RCRAinspections$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016, 2019))+
@@ -1026,7 +1014,7 @@ RCRAenforcement$Amountinthousands <-round(RCRAenforcement$Amountinthousands,2)
 eRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Count, fill=President, group=1))+
   geom_bar(stat="identity", show.legend = FALSE, alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Acciones", x="Año", title="Acciones de aplicación de RCRA\n", subtitle = "Datos potencialmente incompletos")+
+  labs(y="# de Acciones", x="Año", title="Acciones de aplicación\n", subtitle = "Datos potencialmente incompletos")+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAviolations$Count+(.2*max(RCRAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   geom_text(aes(label=Count, family="Georgia", fontface="bold"), position = position_dodge(0.9), vjust = -0.1, size=3)+
@@ -1037,12 +1025,12 @@ eRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Count, fill=
 fineRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Amountinthousands, fill=President, group=1))+
   geom_bar(stat="identity", alpha=.6)+
   scale_fill_manual(values=c("#450d54", "#22908d", "#e56d13"))+
-  labs(y="# de Multas ($1,000)", x="Año", title="Multas de RCRA\n", subtitle = "Datos potencialmente incompletos", caption=common_caption)+
+  labs(y="# de Multas ($1,000)", x="Año", title="Multas\n", subtitle = "Datos potencialmente incompletos", caption=common_caption)+
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAenforcement$Amountinthousands+(.2*max(RCRAenforcement$Amountinthousands)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016,2019))+
   theme_meg()+
   theme(axis.text.x=element_text(size=10),
-        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=10, hjust=.5))
+        axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=8, hjust=0))
 
 
 (iRCRAgraph | vRCRAgraph) / (eRCRAgraph | fineRCRAgraph)
