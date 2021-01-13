@@ -31,8 +31,10 @@ A state_names.csv file in the cd_todos directory is also used to map the state/C
   
 #### Create the HTML and PDF report cards from .Rmd files
 
-The R Markdown files in the reportcards/New directory are inputs for the runreports.R script.  For every .Rmd file
-it finds in the reportcards/New directory it creates an HTML and PDF report card.
+The R Markdown files in the reportcards/New directory are inputs for the runreports.R script.  Copy all of the
+.Rmd files you want to run from the New directory into its parent reportcards directory. For every .Rmd file
+runreports.R finds in the reportcards directory it creates an HTML and PDF report card and puts them into the
+Outputs directory.
   
 #### Directory structure for making report cards
 ```
