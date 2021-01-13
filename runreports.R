@@ -4,7 +4,7 @@
 #output .pdfs and .htmls to reside
 library(pagedown)
 library(here)
-template_file <- 'VA4_2020_es.Rmd'
+template_file <- 'VA4_template_es.Rmd'
 cat( "template file is ", template_file )
 filenames2 = list.files(here(), pattern = ".Rmd")
 print(filenames2)
