@@ -413,9 +413,8 @@ enforcementfinegraph <- enforcement %>% ggplot()+
 
 * <h3>Al comparar los primeros 3 años de la administración bajo cargo de Obama con los primeros 3 años de la administración bajo cargo de Trump, ha habido <span style="color:#569b5e">`r inspectionchange[1,5]`% `r inspectionchange[1,4]`  en las inspecciones,  `r enforcementchange[1,10]`%  `r enforcementchange[1,9]` en las multas y</span>, and a <span style="color:#569b5e">`r enforcementchange[1,8]`% `r enforcementchange[1,7]` en las acciones de aplicación de leyes ambientales.</span></h3>
 
-<br />
-
 * <h3>Bajo la Ley de Agua Limpia, la ley cuya regulación está mejor documentada por los datos disponibles de la EPA, <span style="color:#569b5e">`r CWArecurring[2,2]` nstalaciones, que representan el `r CWArecurring[2,3]`% de todas las instalaciones reguladas en VA4,</span> estuvieron en violación durante <span style="color:#569b5e">al menos 9 meses de los últimos 3 años.</span></h3>
+<br/>
 ```{r echo=FALSE, out.width= "95%", out.extra='style="float:center; padding:0px"'}
 
 effluentgraph/inspectiongraph/enforcementactiongraph/enforcementfinegraph
@@ -868,7 +867,7 @@ vCWAgraph <- ggplot(CWAviolations, mapping=aes(x=factor(YEAR), y=Count, fill=Pre
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAviolations$Count+(.2*max(CWAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016,2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
@@ -887,7 +886,7 @@ iCWAgraph <- ggplot(CWAinspections, mapping=aes(x=factor(Date), y=Count, fill=Pr
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAinspections$Count+(.2*max(CWAinspections$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016, 2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
@@ -915,7 +914,7 @@ eCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Count, fill=Pr
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   geom_text(aes(label=Count, family="Georgia", fontface="bold"), position = position_dodge(0.9), vjust = -0.1, size=3)+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 fineCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Amountinthousands, fill=President, group=1))+
@@ -926,7 +925,7 @@ fineCWAgraph <- ggplot(CWAenforcement, mapping=aes(x=factor(Date), y=Amountintho
   scale_y_continuous(expand=c(0,0), limits=c(0,max(CWAenforcement$Amountinthousands+(.2*max(CWAenforcement$Amountinthousands)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016,2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=8, hjust=0))
 
 
@@ -972,7 +971,7 @@ vRCRAgraph <- ggplot(RCRAviolations, mapping=aes(x=factor(Date), y=Count, fill=P
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAviolations$Count+(.2*max(RCRAviolations$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016,2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 #clean up data
@@ -991,7 +990,7 @@ iRCRAgraph <- ggplot(RCRAinspections, mapping=aes(x=factor(Date), y=Count, fill=
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAinspections$Count+(.2*max(RCRAinspections$Count)))))+
   scale_x_discrete(breaks=c(2004,2008,2012,2016, 2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 
@@ -1019,7 +1018,7 @@ eRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Count, fill=
   scale_x_discrete(breaks=c(2004,2008,2012, 2016, 2019))+
   geom_text(aes(label=Count, family="Georgia", fontface="bold"), position = position_dodge(0.9), vjust = -0.1, size=3)+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5))
 
 fineRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Amountinthousands, fill=President, group=1))+
@@ -1029,7 +1028,7 @@ fineRCRAgraph <- ggplot(RCRAenforcement, mapping=aes(x=factor(Date), y=Amountint
   scale_y_continuous(expand=c(0,0), limits=c(0,max(RCRAenforcement$Amountinthousands+(.2*max(RCRAenforcement$Amountinthousands)))))+
   scale_x_discrete(breaks=c(2004,2008,2012, 2016,2019))+
   theme_meg()+
-  theme(axis.text.x=element_text(size=10),
+  theme(axis.text.x=element_text(size=8),
         axis.title.x = element_blank(), plot.subtitle = element_text(hjust=.5), plot.caption = element_text(size=8, hjust=0))
 
 
