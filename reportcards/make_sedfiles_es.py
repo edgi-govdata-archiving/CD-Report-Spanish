@@ -17,7 +17,7 @@ def main( argv ):
     cds_todo_file = my_args.cds_file
     states_file = my_args.states_file
 
-    template_filename = "VA4_2020_es.Rmd"
+    template_filename = "VA4_template_es.Rmd"
     template_state_cd = "4\$^\\\\circ\$ distrito de Virginia"
     template_state_cd_uc = "4\$^\\\\circ\$ DISTRITO DE VIRGINIA"
     state_cd_new = "$^\\\\circ$ distrito de "
