@@ -405,7 +405,8 @@ enforcementfinegraph <- enforcement %>% ggplot()+
           element_text(lineheight = .1, size=10))
 
 ```
-# ASPECTOS DESTACADOS DEL  ESTADO DE ALASKA
+
+# ASPECTOS DESTACADOS DEL ESTADO DE ALASKA
 
 * <h3>Al comparar los primeros 3 años de la administración bajo cargo de Obama con los primeros 3 años de la administración bajo cargo de Trump, ha habido <span style="color:#569b5e">`r inspectionchange[1,5]`% `r inspectionchange[1,4]`  en las inspecciones,  `r enforcementchange[1,10]`%  `r enforcementchange[1,9]` en las multas y</span>, and a <span style="color:#569b5e">`r enforcementchange[1,8]`% `r enforcementchange[1,7]` en las acciones de aplicación de leyes ambientales.</span></h3>
 
@@ -417,7 +418,7 @@ effluentgraph/inspectiongraph/enforcementactiongraph/enforcementfinegraph
 
 ```
 
-La fiabilidad de los datos en los gráficos a lo largo de este informe se indica mediante el subtítulo de la figura y el grado de transparencia. Para ver el gráfico de codificación de confiabilidad de los datos donde se explica el uso de transparencia en los gráficos, consulte la página de limitaciones de datos (Página 10). Para acceder a los datos a nivel estatal y a nivel del estado, haga clic [aquí](https://colab.research.google.com/github/edgi-govdata-archiving/ECHO-Cross-Program/blob/master/Spanish_AllPrograms.ipynb).
+La fiabilidad de los datos en los gráficos a lo largo de este informe se indica mediante el subtítulo del gráfico y el grado de transparencia. Para ver el gráfico de codificación de confiabilidad de los datos donde se explica el uso de transparencia en los gráficos, consulte la página de limitaciones de datos (Página 10). Para acceder a los datos a nivel estatal y a nivel del estado, haga clic [aquí](https://colab.research.google.com/github/edgi-govdata-archiving/ECHO-Cross-Program/blob/master/Spanish_AllPrograms.ipynb).
 
 \pagebreak
 
@@ -480,10 +481,10 @@ inspect1000bar / violations1000bar
 ```
 <br />
 
-Estos dos gráficos muestran cómo las inspecciones y violaciones en este estado se comparan con los promedios nacionales y estatales por cada 1000 instalaciones en 2019. Usamos datos de 2019 ya que fue el año completo más reciente y la base de datos de ECHO solo informa las instalaciones actualmente activas. Para poder comparar entre ubicaciones con un número diferente de instalaciones activas, estandarizamos la comparación a un valor por cada 1000 instalaciones, ajustando proporcionalmente los datos si hay más o menos de 1000 instalaciones en un distrito o estado. 
+Estos dos gráficos muestran cómo las inspecciones y violaciones en este estado se comparan con el promedio nacional por cada 1000 instalaciones en 2019. Usamos datos de 2019 ya que fue el año completo más reciente y la base de datos de ECHO solo informa las instalaciones actualmente activas. Para poder comparar entre ubicaciones con un número diferente de instalaciones activas, estandarizamos la comparación a un valor por cada 1000 instalaciones, ajustando proporcionalmente los datos si hay más o menos de 1000 instalaciones en un distrito o estado. 
 
 Para acceder el Jupyter notebook que extrae datos de ECHO a nivel estatal y al nivel del estado, haga clic [aquí](https://colab.research.google.com/github/edgi-govdata-archiving/ECHO-Cross-Program/blob/master/Spanish_AllPrograms.ipynb). Para obtener datos nacionales, haga clic [aquí](https://colab.research.google.com/github/edgi-govdata-archiving/ECHO-Cross-Program/blob/master/Spanish_ECHO_National.ipynb).
-La fiabilidad de los datos en los gráficos a lo largo de este informe se indica mediante el subtítulo de la figura y el grado de transparencia. El grado de transparencia en los gráficos demuestra la fiabilidad de los datos: en cuanto más transparentes, más inciertos son los datos. Consulte la página de limitaciones de datos (Página 10) para ver el gráfico de codificación de la confiabilidad de los datos donde se explica el uso de transparencia en los gráficos. 
+La fiabilidad de los datos en los gráficos a lo largo de este informe se indica mediante el subtítulo de la gráfico y el grado de transparencia. El grado de transparencia en los gráficos demuestra la fiabilidad de los datos: en cuanto más transparentes, más inciertos son los datos. Consulte la página de limitaciones de datos (Página 10) para ver el gráfico de codificación de la confiabilidad de los datos donde se explica el uso de transparencia en los gráficos. 
 
 
 \pagebreak
@@ -1056,8 +1057,10 @@ Estos gráficos demuestran patrones de inspecciones de RCRA, violaciones, accion
 <br /> <br /> <br /> <br />
 
 <div class="text-box-info">
-### The Senate Environment and Public Works Commmittee
-This standing committee has broad jurisdiction that has expanded significantly since its creation in 1837. The committee legislates on a myriad of issues including fisheries and wildlife, maintaining and authorizing public works, water pollution and air pollution, among others. It has oversight over seven independent agencies including the EPA. Currently, the Committee consists of 21 members – 11 Republicans and 10 Democrats.
+
+### El Comité de Obras Públicas y Medio Ambiente del Senado
+Este comité  tiene una jurisdicción  extensiva que ha expandido significativamente desde su creación en 1837. El comité legisla una variedad de temas, incluyendo la pesca y la vida silvestre, el mantenimiento y autorización de obras públicas, la contaminación del agua y la contaminación del aire, entre varios otros  temas. Este comité supervisa siete agencias independientes, incluyendo la EPA. Actualmente, el comité consta de 21 miembros: 11 republicanos y 10 demócratas.
+
 </div>
 
 <br />
@@ -1110,7 +1113,7 @@ No incluimos datos de 2020 porque solo estamos a mitad de año. También es impo
 
 ## Página 2: El Grado de la Administración de Trump
 
-Para poder comparar directamente entre los cambios en la aplicación de leyes ambientales y las violaciones desde que la Administración de Trump asumió el cargo, calculamos el cambio porcentual en las violaciones de la Ley de Agua Limpia y las acciones de aplicación por Distrito Congresual o estado entre los primeros tres años de la presidencia de Trump y el promedio histórico en cada estado desde 2001 hasta 2016. Analizamos datos desde el 2001 en adelante, ya que la EPA dice que los datos después del 2001 son más confiables. Solo analizamos datos sobre las violaciones de la Ley de Agua Limpia porque estos datos son los más completos debido a requisitos de informes digitales rutinarios. Analizamos todas las formas de acciones de aplicación formales e informales. Todos los datos se extraen de la base de datos ECHO. 
+Para poder comparar directamente entre los cambios en la aplicación de leyes ambientales y las violaciones desde que la Administración de Trump asumió el cargo, calculamos el cambio porcentual en las violaciones de la Ley de Agua Limpia y las acciones de aplicación por estado o distrito congruesal entre los primeros tres años de la presidencia de Trump y el promedio histórico en cada estado desde 2001 hasta 2016. Analizamos datos desde el 2001 en adelante, ya que la EPA dice que los datos después del 2001 son más confiables. Solo analizamos datos sobre las violaciones de la Ley de Agua Limpia porque estos datos son los más completos debido a requisitos de informes digitales rutinarios. Analizamos todas las formas de acciones de aplicación formales e informales. Todos los datos se extraen de la base de datos ECHO. 
 
 Describimos las tasas como "mucho peor" si el aumento porcentual de las violaciones o la disminución de las acciones de aplicación es superior al 100%, "peor" si el cambio porcentual está entre 0% y 100% e "igual" si no hay cambio. 
 
@@ -1124,7 +1127,7 @@ Describimos que las tasas son "mejores" si las tasas de violación disminuyeron 
 
 <br />
 
-El gráfico de puntos (dot plot) muestra el número de violaciones de la Ley de Agua Limpia en este estado o distrito en comparación con todos los demás en este comité del Senado o de la Cámara en 2019. Usamos los datos de la Ley de Agua Limpia ya que son los más confiables y usamos datos del 2019 porque tenemos la mayor confianza sobre los datos por cada 1000 instalaciones en ese año. Proporcionamos esta métrica porque es posible que las tasas de violaciones y aplicación de la ley de algunos distritos no hayan cambiado porque su desempeño es consistentemente bueno o malo.
+El gráfico de puntos (dot plot) muestra el número de violaciones de la Ley de Agua Limpia en este estado o distrito en comparación con todos los demás en este comité del Senado o de la Cámara en 2019. Usamos los datos de la Ley de Agua Limpia ya que son los más confiables y usamos datos del 2019 porque tenemos la mayor confianza sobre los datos por cada 1000 instalaciones en ese año. Proporcionamos esta métrica porque es posible que las tasas de violaciones y aplicación de la ley de algunos estados no hayan cambiado porque su desempeño es consistentemente bueno o malo.
 
 ## Página 3: Aspectos destacados de este estado
 
@@ -1147,7 +1150,7 @@ Para señalar el problema de las violaciones crónicas y rutinarias de las leyes
 
 ## Página 4: Este estado en Comparación
 
-Para generar una comparación entre los Distritos Congresuales, cada uno de los cuales tiene un número diferente de instalaciones, observamos el número promedio de violaciones, inspecciones y acciones de aplicaciones por cada 1000 instalaciones. En los estados donde hay menos de 1000 instalaciones, esto requiere que ajustemos sus datos.
+Para generar una comparación entre los estados, cada uno de los cuales tiene un número diferente de instalaciones, observamos el número promedio de violaciones, inspecciones y acciones de aplicaciones por cada 1000 instalaciones. En los estados donde hay menos de 1000 instalaciones, esto requiere que ajustemos sus datos.
 
 
 ## Página 5:  Incumplimiento reciente en este estado

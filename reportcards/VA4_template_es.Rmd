@@ -91,7 +91,6 @@ VA4 <- housemembers[which(housemembers$CD=="VA4"), ]
 <h4>INFORME GENERADO EL 12.13.2020<span style="padding-left:350px">PÁGINA 1</span></h4>
 
 
-
 # INTRODUCCIÓN 
 
 **IMPORTANTE: Debido a que algunos sitios web no están disponibles en español, algunos enlaces llegan a sitios de web en inglés, para poder leerlos en español, puede bajar la extensión de Google Chrome, “Google Translate” y utilizar la función “translate this page” o “traducir esta página”**
