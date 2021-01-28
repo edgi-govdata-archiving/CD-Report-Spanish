@@ -21,7 +21,7 @@ The CSVs listed in the cd_todos directory files are used to generate batches of 
 
 From the reportcards directory, the make_sedfiles.py script creates a file of replacement editing commands to be run against the template .Rmd file to make the .Rmd for the CD.  This script also creates the make_reports.sh bash shell script the calls upon the sedfiles to do the editing for each CD.
 
-A state_names.csv file in the cd_todos directory is also used to map the state/CD from the cds_todo_X.csv files to the full possessive state name, e.g. AL,1 --> Alabama's 1st.
+A state_names_es.csv file in the cd_todos directory is also used to map the state/CD from the cds_todo_X.csv files to the full state name, e.g. AL --> Alabama.
 
   ../cd_todos/cd_todos_1.csv
   ../cd_todos/state_names_es.csv   ---> make_sedfiles.py   ---> reportcards/SEDs/sedfile_AL1.txt, etc.
