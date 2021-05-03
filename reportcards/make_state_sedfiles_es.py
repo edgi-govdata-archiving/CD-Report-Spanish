@@ -8,7 +8,7 @@ def main( argv ):
        'Make a sedfile for each of the States in the input CSV,' \
        ' and a make_reports_es.sh that will call the sedfiles' )
     parser.add_argument( '-c', '--todo_file', required=True,
-        help='The CDs to work with' )
+        help='The states to work with' )
     parser.add_argument( '-s', '--states_file', required=True,
         help='The state names' )
     my_args = parser.parse_args()
@@ -21,7 +21,7 @@ def main( argv ):
     template_state_uc = "ALASKA"
     template_st = "AK"
     template_data_date = "091820"
-    data_date = "091820"
+    data_date = "102320"
     bash_name = "make_reports_es.sh"
     
     with open( states_todo_file, 'r' ) as read_obj:

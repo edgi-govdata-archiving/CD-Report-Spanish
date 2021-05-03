@@ -1,12 +1,3 @@
-sed -f SEDs/sedfile_FL12_es.txt VA4_template_es.Rmd > New/FL12_2020_es.Rmd
-sed -f SEDs/sedfile_FL14_es.txt VA4_template_es.Rmd > New/FL14_2020_es.Rmd
-sed -f SEDs/sedfile_FL9_es.txt VA4_template_es.Rmd > New/FL9_2020_es.Rmd
-sed -f SEDs/sedfile_GA1_es.txt VA4_template_es.Rmd > New/GA1_2020_es.Rmd
-sed -f SEDs/sedfile_IA2_es.txt VA4_template_es.Rmd > New/IA2_2020_es.Rmd
-sed -f SEDs/sedfile_IL1_es.txt VA4_template_es.Rmd > New/IL1_2020_es.Rmd
-sed -f SEDs/sedfile_IL15_es.txt VA4_template_es.Rmd > New/IL15_2020_es.Rmd
-sed -f SEDs/sedfile_IL16_es.txt VA4_template_es.Rmd > New/IL16_2020_es.Rmd
-sed -f SEDs/sedfile_IL2_es.txt VA4_template_es.Rmd > New/IL2_2020_es.Rmd
-sed -f SEDs/sedfile_IL9_es.txt VA4_template_es.Rmd > New/IL9_2020_es.Rmd
-sed -f SEDs/sedfile_IN5_es.txt VA4_template_es.Rmd > New/IN5_2020_es.Rmd
-sed -f SEDs/sedfile_IN8_es.txt VA4_template_es.Rmd > New/IN8_2020_es.Rmd
+sed -f SEDs/sedfile_NM1_es.txt NY14_template_es.Rmd > New/NM1_2020_es.Rmd
+sed -f SEDs/sedfile_IL5_es.txt NY14_template_es.Rmd > New/IL5_2020_es.Rmd
+sed -f SEDs/sedfile_IL7_es.txt NY14_template_es.Rmd > New/IL7_2020_es.Rmd

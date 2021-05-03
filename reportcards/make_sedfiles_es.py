@@ -11,20 +11,22 @@ def main( argv ):
         help='The CDs to work with' )
     parser.add_argument( '-s', '--states_file', required=True,
         help='The state names' )
+    parser.add_argument( '-t', '--template_file', required=True,
+        help='The Rmd file to use as template' )
     my_args = parser.parse_args()
 
     # pdb.set_trace()
     cds_todo_file = my_args.cds_file
     states_file = my_args.states_file
+    template_filename = my_args.template_file
 
-    template_filename = "VA4_template_es.Rmd"
-    template_state_cd = "4\$^\\\\circ\$ distrito de Virginia"
-    template_state_cd_uc = "4\$^\\\\circ\$ DISTRITO DE VIRGINIA"
+    template_state_cd = "14\$^\\\\circ\$ distrito de New York"
+    template_state_cd_uc = "14\$^\\\\circ\$ DISTRITO DE NEW YORK"
     state_cd_new = "$^\\\\circ$ distrito de "
     state_cd_new_uc = "$^\\\\circ$ DISTRITO DE "
-    template_st = "VA"
-    template_data_date = "091820"
-    data_date = "091820"
+    template_st = "NY"
+    template_data_date = "102320"
+    data_date = "111820"
     bash_name = "make_reports_es.sh"
     
     with open( cds_todo_file, 'r' ) as read_obj:
@@ -50,16 +52,16 @@ def main( argv ):
                 str = "s/{}/{}{}{}/g\n".format( template_state_cd_uc,
                      cd, state_cd_new_uc, state_names_uc[ state ])
                 write_obj.write( str )
-                str = "s/VA 4/{} {}/g\n".format( state, cd )
+                str = "s/NY 14/{} {}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/_VA-4/_{}-{}/g\n".format( state, cd )
+                str = "s/_NY-14/_{}-{}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/VA4/{}{}/g\n".format( state, cd )
+                str = "s/NY14/{}{}/g\n".format( state, cd )
                 write_obj.write( str )
-                str = "s/_VA-/_{}-/g\n".format( state )
+                str = "s/_NY-/_{}-/g\n".format( state )
                 write_obj.write( str )
                 if ( template_data_date != data_date ):
-                    str = "s/{}/{}\n".format( template_data_date, data_date )
+                    str = "s/{}/{}/g\n".format( template_data_date, data_date )
                     write_obj.write( str )
             str = "sed -f {} {} > {}\n".format( sed_name, template_filename,
                                                 target_file )

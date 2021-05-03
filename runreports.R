@@ -4,15 +4,15 @@
 #output .pdfs and .htmls to reside
 library(pagedown)
 library(here)
-template_file <- 'VA4_template_es.Rmd'
-cat( "template file is ", template_file )
+template_file <- 'Templates/NY14_template_es.Rmd'
+cat( "template file is ", template_file, "\n" )
 filenames2 = list.files(here(), pattern = ".Rmd")
 print(filenames2)
 file_count = length(filenames2)
 for (x in filenames2) {
   print(x)
   if ( x == template_file ){
-    break
+    next
   }
   pagedown::chrome_print(rmarkdown::render(
   here(x), envir = new.env(),clean = TRUE, output_dir = (here("Outputs"))))
