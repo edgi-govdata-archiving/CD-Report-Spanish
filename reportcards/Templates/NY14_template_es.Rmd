@@ -1287,7 +1287,7 @@ EEW ha elaborado boletas de calificaciones para los 76 senadores y representante
 [El Repositorio GitHub para producir informes](https://github.com/edgi-govdata-archiving/CD-report) | 
 [La página web de EEW](https://www.environmentalenforcementwatch.org) |
 <a href = "mailto: environmentalenforcementwatch@gmail.com">Contáctenos</a> |
-[Enlace para descargar la versión PDF de este informe](https://github.com/edgi-govdata-archiving/CD-report/blob/master/reportcards/NY14_2020.pdf)
+[Enlace para descargar la versión PDF de este informe](https://github.com/edgi-govdata-archiving/CD-report/blob/master/reportcards/NY14_2020_es.pdf)
 
 <div class="text-box-info">
 <h3>Sobre EDGI</h3>
